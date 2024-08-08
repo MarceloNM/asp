@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Pessoa 
+
+<div class="text-center">
+    <h1 class="display-4">Bem vindo, @Model.Nome</h1>
+    <h2 class="sisplay-3">Este site serve para falar sobre a coleção de coleções de @Model.Nome</h2>
+    <!-- p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</ --p> -->
+    <br />
+    <a href="https://www.youtube.com/watch?v=RqKtDn5ntms">música moderna</a>
+    <a href="https://www.youtube.com/watch?v=3MxhHeRUYno">música muito moderna</a>
+    <a href="https://www.youtube.com/watch?v=T4ZP-kp5kNE">música clássica</a>
+    
+    <a id = "teste" class="center" href="https://www.youtube.com/watch?v=O1t67dslzj0"><img src="images/img_chania.jpg" /></a>
+    
+    <section class ="flex-container">
+        <img src="images/i11.jpg" alt="peça 11">
+        <img src="images/i12.jpg" alt="peça 12">
+        <img src="images/i13.jpg" alt="peça 13">
+        <img src="images/i21.jpg" alt="peça 21">
+        <img src="images/i22.jpg" alt="peça 22">
+        <img src="images/i23.jpg" alt="peça 23">
+        <img src="images/i31.jpg" alt="peça 31">
+        <img src="images/i32.jpg" alt="peça 32">
+        <img src="images/i33.jpg" alt="peça 33">
+    </section>
+
+</div>
+
+<script>
+    function calcula() {
+        // alert("entrou no cálculo");
+        const nt = [];
+        const ps = [];
+        for (let i = 0; i < 3; i++) {
+            let k = i + 1;
+            nt[i] = parseFloat(document.getElementById(`n${k}`).value);
+            ps[i] = parseFloat(document.getElementById(`p${k}`).value);
+        }
+        let resultado = (nt[0] * ps[0] + nt[1] * ps[1] + nt[2] * ps[2]) / (ps[0] + ps[1] + ps[2]);
+        //        alert(x +' + ' +  y + ' = ' + resultado);
+        const res = document.getElementById("res");
+        res.innerHTML = "a média é: " + parseFloat(resultado);
+    }
+</script>
+<div>
+    <h4>Cálculo</h4>
+    <br />
+    <hr />
+    <br />
+    <h4>Entrada</h4>
+    <form action="#" onsubmit="return calcula()">
+        <label>Primeira nota:</label>
+        <input id="n1" type="number" value="1" /> <br />
+        <label>Segunda nota:</label>
+        <input id="n2" type="number" value="1" /> <br />
+        <label>Terceira nota:</label>
+        <input id="n3" type="number" value="1" /> <br /> <br />
+        <label>Primeiro peso:</label>
+        <input id="p1" type="number" value="1" /> <br />
+        <label>Segundo peso:</label>
+        <input id="p2" type="number" value="1" /> <br />
+        <label>Terceiro peso:</label>
+        <input id="p3" type="number" value="1" /> <br /> <br />
+        <input type="submit" value="Calcula" />
+    </form>
+    <br />
+    <hr />
+    <br />
+    <h4>Resultado</h4>
+    <p id="res"></p>
+    <br />
+    <hr />
+    <br />
+</div>

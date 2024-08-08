@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<Pessoa>
+@{
+    // var db = Database.Open("SmallBakery");
+    // var selectQueryString = "SELECT * FROM Product ORDER BY Name";
+    // var lista = 
+    // https://www.c-sharpcorner.com/UploadFile/0c1bb2/inserting-Asp-Net-form-data-into-database-using-web-api/
+}
+<h1>Utilizadores</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Telefone</th>
+    </tr>
+    @foreach (var row in Model)
+    {
+        <tr>
+            <td>@row.Id</td>
+            <td>@row.Nome</td>
+            <td>@row.Email</td>
+            <td>@row.Tefone</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,283 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_Tp.cshtml";
+}
+
+
+@*<div id="abaco">
+        <!-- input type="button" value="Generate a table" onclick="tabuleiro()" /-->
+        <button value="Start" onclick= "tp()">Start</button>
+    </div>*@
+   
+
+<div id="pagina">
+	<div id ="cabeca">
+		<div id="logo">
+			&exist;
+		</div> <!-- #logo -->
+
+		<div id="cabeca_cont">
+		<br/>
+			Tabela Periódica de Mendeleiev
+		<br/>
+		</div> <!-- #cabeca_cont -->
+
+	</div> <!-- #cabeca -->
+
+	<div id ="conteudo">
+		<div id="menu">
+<!--		<p> </p>
+		<p> Propriedades </p>  -->
+<!--		<button type="button" onclick="myFunction()">Click Me!</button> -->
+<!--		<div id="box" class="boxes" onmouseover="css('#box', 'color', 'red')">Mouseover Me!</div> -->
+<!--		<button type="button" onclick="mudaEstilo('.e','color','#888')">Click Me!</button>
+		<button type="button" onclick="mudaEstilo('.e','color','#888')">Click Me!</button>
+		<button type="button" onmouseout ="mudaEstilo('.g','background','white')" onmouseover="mudaEstilo('.g','background','aqua')">Gases raros</button>
+		<button type="button" onmouseout ="mudaEstilo('.h','background','white')" onmouseover="mudaEstilo('.h','background','aqua')">Halogénios</button>
+		<button type="button" onmouseout ="mudaEstilo('.m','background','white')" onmouseover="mudaEstilo('.m','background','aqua')">Metais</button>
+		<button type="button" onmouseout ="mudaEstilo('.ma','background','white')" onmouseover="mudaEstilo('.ma','background','aqua')">Metais Alcalinos</button>
+		<button type="button" onmouseout ="mudaEstilo('.tr','background','white')" onmouseover="mudaEstilo('.tr','background','aqua')">Terras Raras</button>
+		-->
+		<table>
+		<tr><td></td></tr>
+		<tr> <td class="menu gr" onmouseout ="mudaEstilo('.gr','background','white')" onmouseover="mudaEstilo('.gr','background','aqua')">Gases nobres</td>
+		</tr>
+		<tr> <td class="menu h" onmouseout ="mudaEstilo('.h','background','white')" onmouseover="mudaEstilo('.h','background','lightgreen')">Halogénios</td>
+		</tr>
+		<tr> <td class="menu mt" onmouseout ="mudaEstilo('.mt','background','white')" onmouseover="mudaEstilo('.mt','background','teal')">Metais de Transição</td>
+		</tr>
+		<tr> <td class="menu ma" onmouseout ="mudaEstilo('.ma','background','white')" onmouseover="mudaEstilo('.ma','background','orange')">Metais Alcalinos</td>
+		</tr>
+		<tr> <td class="menu tr" onmouseout ="mudaEstilo('.tr','background','white')" onmouseover="mudaEstilo('.tr','background','aqua')">Terras Raras</td>
+		</tr>
+		<tr> <td class="menu nm" onmouseout ="mudaEstilo('.nm','background','white')" onmouseover="mudaEstilo('.nm','background','olive')">Não Metais</td>
+		</tr>
+		<tr> <td class="menu at" onmouseout ="mudaEstilo('.at','background','white')" onmouseover="mudaEstilo('.at','background','yellow')">Alcalino Terrosos</td>
+		</tr>
+		<tr> <td class="menu sm" onmouseout ="mudaEstilo('.sm','background','white')" onmouseover="mudaEstilo('.sm','background','lime')">Semi Metais</td>
+		</tr>
+		<tr> <td class="menu mb" onmouseout ="mudaEstilo('.mb','background','white')" onmouseover="mudaEstilo('.mb','background','fuchsia')">Metais Básicos</td>
+		</tr>
+		<tr> <td class="menu lq" onmouseout ="mudaEstilo('.lq','color','black')" onmouseover="mudaEstilo('.lq','color','blue')">Estado líquido</td>
+		</tr>
+		<tr> <td class="menu g" onmouseout ="mudaEstilo('.g','color','black')" onmouseover="mudaEstilo('.g','color','aqua')">Estado gasoso</td>
+		</tr>
+		<tr> <td class="menu ar" onmouseout ="mudaEstilo('.ar','color','black')" onmouseover="mudaEstilo('.ar','color','#BBB')">Artificiais</td>
+		</tr>
+		<tr> <td class="menu ra" onmouseout ="mudaEstilo('.ra','color','black')" onmouseover="mudaEstilo('.ra','color','red')">Radioativos</td>
+		</tr>
+		<tr><td> <button id="jogIni" type="button" onclick="mudaEstado()">Nível 1</button></td>
+		</tr>
+		<tr><td> <button id="jogo" type="button" onclick="jogar()">Jogar</button></td>
+		</tr>
+		</table>
+		</div> <!-- menu -->
+		<div id="tabela">
+		<table>
+			<tr>
+				<td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+				<td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
+				<td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td>
+			</tr>
+			<tr>
+				<td></td><td class="l">IA</td><td class="l">IIA</td><td class="l">IIIB</td><td class="l">IVB</td><td class="l">VB</td><td class="l">VIB</td>
+				<td class="l">VIIB</td><td class="l" colspan="3">VIII</td><td class="l">IB</td><td class="l">IIB</td>
+				<td class="l">IIIA</td><td class="l">IVA</td><td class="l">VA</td><td class="l">VIA</td><td class="l">VIIA</td><td class="l">VIIIA</td>
+			</tr>
+			<tr>
+				<td></td><td></td><td></td><td colspan="10" rowspan="4">
+				<table id = "caixa">
+				<tr>
+					<td id ="etitul1" class="lmedia"></td>
+					<td></td><td></td><td></td>
+					<td id ="etitul4" class="lmedia"></td>
+				</tr>
+				<tr>
+					<td id = "enumero" class ="lmedia lbold"></td>
+					<td></td><td></td><td></td>
+					<td id = "epeso" class ="lmedia lbold"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td colspan="3" id = "enome"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td id="eresposta" colspan="3"></td>
+					<td></td>
+				</tr>
+				</table>
+				
+				</td><td></td>
+			</tr>
+			<tr>
+				<td>1</td><td class="e nm g">
+				<!-- a onmouseover ="mostraElemento('Hidrogénio','1','1,008','yellow')">H</a --> 
+				<a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(1)">H</a> 
+				</td><td></td> <td colspan="5"></td>
+				<!-- td></td><td></td><td></td><td></td>
+				<td></td><td></td><td></td><td></td><td></td><td></td>
+				<td></td><td></td><td></td><td></td><td></td -->
+				<!--td class="e gr g"><a onmouseout ="limpaElemento()" onmouseover ="mostraElemento('Hélio','2','4,003')">He</a></td -->
+				<td class="e gr g"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(2)">He</a></td>
+			</tr>
+			<tr>
+				<td>2</td><td class="e ma">
+				<!-- a onmouseout ="limpaElemento()" onmouseover ="mostraElemento('Lítio','3','6,491')">Li</a></td -->
+				<a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(3)">Li</a></td -->
+				<td class="e at">
+				<!-- a onmouseout ="limpaElemento()" onmouseover ="mostraElemento('Berílio','4','9,012')">Be</a></td><!--td colspan="10"></td-->
+				<a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(4)">Be</a></td><!--td colspan="10"></td -->
+				<!-- td></td><td></td><td></td>
+				<td></td><td></td><td></td><td></td><td></td><td></td -->
+				<td class="e sm"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(5)">B</a></td>
+				<td class="e nm"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(6)">C</a></td>
+				<td class="e nm g"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(7)">N</a></td>
+				<td class="e nm g"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(8)">O</a></td>
+				<td class="e h g"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(9)">F</a></td>
+				<td class="e g gr"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(10)">Ne</a></td>
+			</tr>
+			<tr>
+				<td>3</td><td class="e ma"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(11)">Na</a></td>
+				<td class="e at"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(12)">Mg</a></td><!--td colspan="10"></td-->
+				<!--td></td><td></td><td></td>
+				<td></td><td></td><td></td>
+				<td></td><td></td><td></td-->
+				<td class="e mb"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(13)">Al</a></td>
+				<td class="e sm"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(14)">Si</a></td>
+				<td class="e nm"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(15)">P</a></td>
+				<td class="e nm"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(16)">S</a></td>
+				<td class="e h g"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(17)">Cl</a></td>
+				<td class="e g gr"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(18)">Ar</a></td>
+			</tr>
+			<tr>
+				<td>4</td><td class="e ma"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(19)">K</a></td>
+				<td class="e at"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(20)">Ca</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(21)">Sc</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(22)">Ti</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(23)">V</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(24)">Cr</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(25)">Mn</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(26)">Fe</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(27)">Co</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(28)">Ni</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(29)">Cu</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(30)">Zn</a></td>
+				<td class="e mb"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(31)">Ga</a></td>
+				<td class="e sm"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(32)">Ge</a></td>
+				<td class="e sm"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(33)">As</a></td>
+				<td class="e nm"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(34)">Se</a></td>
+				<td class="e h lq"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(35)">Br</a></td>
+				<td class="e g gr"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(36)">Kr</a></td>
+			</tr>
+			<tr>
+				<td>5</td><td class="e ma"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(37)">Rb</a></td>
+				<td class="e at"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(38)">Sr</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(39)">Y</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(40)">Zr</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(41)">Nb</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(42)">Mo</a></td>
+				<td class="e mt ar ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(43)">Tc</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(44)">Ru</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(45)">Rh</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(46)">Pd</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(47)">Ag</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(48)">Cd</a></td>
+				<td class="e mb"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(49)">In</a></td>
+				<td class="e mb"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(50)">Sn</a></td>
+				<td class="e sm"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(51)">Sb</a></td>
+				<td class="e sm"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(52)">Te</a></td>
+				<td class="e h"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(53)">I</a></td>
+				<td class="e g gr"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(54)">Xe</a></td>
+			</tr>
+			<tr>
+				<td>6</td><td class="e ma"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(55)">Cs</a></td>
+				<td class="e at"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(56)">Ba</a></td>
+				<td class="la" onmouseup ="mudaEstilo('.la','background','white')" onmousedown="mudaEstilo('.la','background','aqua')">*</td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(72)">Hf</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(73)">Ta</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(74)">W</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(75)">Re</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(76)">Os</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(77)">Ir</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(78)">Pt</a></td>
+				<td class="e mt"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(79)">Au</a></td>
+				<td class="e mt lq"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(80)">Hg</a></td>
+				<td class="e mb"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(81)">Tl</a></td>
+				<td class="e mb"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(82)">Pb</a></td>
+				<td class="e mb"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(83)">Bi</a></td>
+				<td class="e sm ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(84)">Po</a></td>
+				<td class="e h ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(85)">At</a></td>
+				<td class="e g gr ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(86)">Rn</a></td>
+			</tr>
+			<tr>
+				<td>7</td><td class="e ma ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(87)">Fr</a></td>
+				<td class="e at ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(88)">Ra</a></td>
+				<td class="ac"onmouseup ="mudaEstilo('.ac','background','white')" onmousedown="mudaEstilo('.ac','background','aqua')">**</td>
+				<td class="e ar ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(104)">Rf</a></td>
+				<td class="e ar ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(105)">Db</a></td>
+				<td class="e ar ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(106)">Sg</a></td>
+				<td class="e ar ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(107)">Bh</a></td>
+				<td class="e ar ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(108)">Hs</a></td>
+				<td class="e ar ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(109)">Mt</a></td>
+				<td class="e ar ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(110)">Ds</a></td>
+				<td class="e ar ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(111)">Rg</a></td>
+				<td class="e ar ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(112)">Cn</a></td>
+				<td class="e ar ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(113)">Uut</a></td>
+				<td class="e ar"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(114)">Fl</a></td>
+				<td class="e ar"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(115)">Uup</a></td>
+				<td class="e ar"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(116)">Lv</a></td>
+				<td class="e ar"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(117)">Uus</a></td>
+				<td class="e ar"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(118)">Uuo</a></td>
+			</tr>
+			<tr>
+				<td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+				<td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
+				<td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td>
+			</tr>
+			<tr>
+				<td></td><td></td><td>6</td><td class="la">*</td>
+				<td class="e tr la"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(57)">La</a></td>
+				<td class="e tr la"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(58)">Ce</a></td>
+				<td class="e tr ar la"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(59)">Pr</a></td>
+				<td class="e tr la ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(60)">Nd</a></td>
+				<td class="e tr la"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(61)">Pm</a></td>
+				<td class="e tr la"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(62)">Sm</a></td>
+				<td class="e tr la"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(63)">Eu</a></td>
+				<td class="e tr la"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(64)">Gd</a></td>
+				<td class="e tr la"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(65)">Tb</a></td>
+				<td class="e tr la"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(66)">Dy</a></td>
+				<td class="e tr la"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(67)">Ho</a></td>
+				<td class="e tr la"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(68)">Er</a></td>
+				<td class="e tr la"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(69)">Tm</a></td>
+				<td class="e tr la"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(70)">Yb</a></td>
+				<td class="e tr la"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(71)">Lu</a></td>
+			</tr>
+			<tr>
+				<td></td><td></td><td>7</td><td class="ac">**</td>
+				<td class="e ac ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(89)">Ac</a></td>
+				<td class="e ac ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(90)">Th</a></td>
+				<td class="e ac ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(91)">Pa</a></td>
+				<td class="e ac ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(92)">U</a></td>
+				<td class="e ar ac ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(93)">Np</a></td>
+				<td class="e ar ac ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(94)">Pu</a></td>
+				<td class="e ar ac ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(95)">Am</a></td>
+				<td class="e ar ac ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(96)">Cm</a></td>
+				<td class="e ar ac ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(97)">Bk</a></td>
+				<td class="e ar ac ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(98)">Cf</a></td>
+				<td class="e ar ac ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(99)">Es</a></td>
+				<td class="e ar ac ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(100)">Fm</a></td>
+				<td class="e ar ac ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(101)">Md</a></td>
+				<td class="e ar ac ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(102)">No</a></td>
+				<td class="e ar ac ra"><a onmouseup ="limpaElemento()" onmousedown ="mostraElemento(103)">Lr</a></td>
+			</tr>
+		</table>
+		</div> <!-- tabela -->
+	</div>  <!-- conteudo -->
+<!--	<div>
+	Rodapé
+	</div>  -->
+</div>  <!-- pagina -->

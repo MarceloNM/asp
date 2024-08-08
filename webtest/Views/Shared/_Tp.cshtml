@@ -1,0 +1,524 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - webtest</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/webtest.styles.css" asp-append-version="true" />
+	<style type="text/css">
+
+		#pagina {
+			width: 1000px;
+			height: 800px;
+			margin-top: 0;
+			margin-left: auto;
+			margin-bottom: 0;
+			margin-right: auto;
+			background-color: #FFF;
+			border-width: 7px;
+			border-style: solid;
+			border-color: white;
+		}
+
+		#cabeca {
+			width: 100%;
+			height: 10%;
+			background-color: #EEE;
+			color: #222;
+		}
+
+		#logo {
+			width: 75px;
+			height: 75px;
+			float: left;
+			background-color: aqua;
+			text-align: center;
+			box-shadow: -5px 5px 0 #333;
+			border-width: 2px;
+			border-style: solid;
+			border-color: cyan;
+			border-radius: 10px;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 3em;
+			font-weight: bold;
+		}
+
+
+		#cabeca_cont {
+			width: 90%;
+			height: 75px;
+			float: right;
+			background-color: #DDD;
+			text-align: center;
+			/*	box-shadow: 5px 5px 0 #333; */
+			border-width: 4px;
+			border-style: solid;
+			border-color: white;
+			border-radius: 10px;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 2em;
+			font-weight: bold;
+		}
+
+
+		#conteudo {
+			width: 100%;
+			height: 80%;
+			float: none;
+			margin-top: 0;
+			margin-left: auto;
+			margin-bottom: 0;
+			margin-right: auto;
+			background-color: #EEE;
+		}
+
+		#menu {
+			width: 10%;
+			height: 100%;
+			float: left;
+			background-color: #FFF;
+		}
+
+		.menu {
+			width: 100px;
+			height: 30px;
+			font: small Arial, Helvetica, sans-serif;
+			background-color: #FFF;
+			cursor: pointer;
+		}
+
+		#tabela {
+			width: 90%;
+			height: 100%;
+			float: right;
+			background-color: #FFF;
+			cursor: pointer;
+		}
+
+		td {
+			width: 40px;
+			height: 40px;
+			font: x-large Times, Arial, Helvetiva, sans-serif;
+			text-align: center;
+		}
+
+		.e { /* é elemento */
+			border: thin black solid;
+		}
+
+		.l { /* é legenda */
+			font: small Arial, Helvetica, sans-serif;
+			border: thin black dashed;
+		}
+
+		.gr { /* é um gás nobre */
+			/*		background: aqua; 		*/
+		}
+
+		.g { /* é um gás */
+		}
+
+		.h { /* é um halogéneo */
+		}
+
+		.tr { /* é uma terra rara */
+		}
+
+		.mt { /* é um metal de transição */
+		}
+
+		.ma { /* é um metal alcalino */
+		}
+
+		.nm { /* é um não metal */
+		}
+
+		.at { /* é um alcalino terroso */
+		}
+
+		.lq { /* é um líquido */
+		}
+
+		.sm { /* é um semi metal */
+		}
+
+		.mb { /* é um metal básico */
+		}
+
+		.ar { /* é um artificial */
+		}
+
+		.la { /* é um lantanídeo */
+		}
+
+		.ac { /* é um actinídeo */
+		}
+
+		.ra { /* é radioativo */
+		}
+
+		#caixa {
+			width: 72%; /* 52% */
+			height: 100%;
+			margin-top: 0;
+			margin-left: auto;
+			margin-bottom: 0;
+			margin-right: auto;
+			background-color: #EEE;
+			border-width: 3px;
+			border-style: solid;
+			border-color: white;
+		}
+
+		#etitul1 { /* título um da tabela central */
+		}
+
+		#etitul4 { /* título quatro da tabela central */
+		}
+
+		#enome { /* campo que recebe nome do elemento */
+		}
+
+		#enumero { /* campo que recebe numero do elemento */
+		}
+
+		#epeso { /* campo que recebe massa do elemento */
+		}
+
+		#jogIni { /* botão de início do jogo */
+		}
+
+		#jogo {
+			visibility: hidden;
+		}
+
+		#eresposta {
+		}
+
+		.lxsmall {
+			font-size: x-small;
+			/*		vertical-align: top; */
+		}
+
+		.lmedia {
+			font-size: medium;
+			/*		vertical-align: top; */
+		}
+
+		.lbold {
+			font-weight: bold;
+		}
+
+		.lsmall {
+			font-size: small;
+			/*		vertical-align: top; */
+		}
+
+	</style>
+	<script type="text/javascript">
+		//window.i = 5;
+
+		var estado = 0;  // 0 - estado consulta    1 - estado jogo nível 1   2 - estado jogo nível 2
+		var escolha = 0;
+
+		var elementos = [['', '', ''],
+		['Hidrogénio', '1', '1,002'],
+		['Hélio', '2', '4,002'],
+		['Lítio', '3', '6,002'],
+		['Berílio', '4', '8,003'],
+		['Boro', '5', '10,811'],
+		['Carbono', '6', '12,011'],
+		['Azoto', '7', '14,006'],
+		['Oxigénio', '8', '15,999'],
+		['Fluor', '9', '18,998'],
+		['Neon', '10', '20,180'],
+		['Sódio', '11', '22,989'],
+		['Magnésio', '12', '24,305'],
+		['Alumínio', '13', '26,981'],
+		['Silício', '14', '28,085'],
+		['Fósforo', '15', '30,973'],
+		['Enxofre', '16', '32,066'],
+		['Cloro', '17', '35,453'],
+		['Argon', '18', '39,948'],
+		['Potássio', '19', '39,098'],
+		['Cálcio', '20', '40,078'],
+		['Escândio', '21', '44,956'],
+		['Titânio', '22', '47,88'],
+		['Vanádio', '23', '50,941'],
+		['Cromo', '24', '51,996'],
+		['Manganésio', '25', '54,938'],
+		['Ferro', '26', '55,847'],
+		['Cobalto', '27', '58,933'],
+		['Níquel', '28', '58,693'],
+		['Cobre', '29', '63,546'],
+		['Zinco', '30', '65,39'],
+		['Gálio', '31', '69,723'],
+		['Germânio', '32', '72,61'],
+		['Arsénio', '33', '74,921'],
+		['Selénio', '34', '78,96'],
+		['Bromo', '35', '79,904'],
+		['Kripton', '36', '83,80'],
+		['Rubídio', '37', '85,467'],
+		['Estrôncio', '38', '87,62'],
+		['Ítrio', '39', '88,905'],
+		['Zircónio', '40', '91,224'],
+		['Nióbio', '41', '92,906'],
+		['Molibdénio', '42', '95,94'],
+		['Tecnécio', '43', '(98)'],
+		['Ruténio', '44', '101,07'],
+		['Ródio', '45', '102,905'],
+		['Paládio', '46', '106,42'],
+		['Prata', '47', '107,868'],
+		['Cádmio', '48', '112,411'],
+		['Índio', '49', '114,82'],
+		['Estanho', '50', '118,71'],
+		['Antimónio', '51', '121,757'],
+		['Telúrio', '52', '127,60'],
+		['Iodo', '53', '126,904'],
+		['Xenon', '54', '131,29'],
+		['Césio', '55', '132,905'],
+		['Bário', '56', '137,327'],
+		['Lantânio', '57', '138,905'],
+		['Cério', '58', '140,115'],
+		['Praseodímio', '59', '140,908'],
+		['Neodímio', '60', '144,24'],
+		['Promécio', '61', '144,913'],
+		['Samário', '62', '150,36'],
+		['Európio', '63', '151,965'],
+		['Gadolínio', '64', '157,25'],
+		['Térbio', '65', '158,925'],
+		['Disprósio', '66', '162,50'],
+		['Hólmio', '67', '164,930'],
+		['Érbio', '68', '167,26'],
+		['Túlio', '69', '168,934'],
+		['Itérbio', '70', '173,04'],
+		['Lutécio', '71', '174,967'],
+		['Háfnio', '72', '178,49'],
+		['Tântalo', '73', '180,947'],
+		['Tungsténio', '74', '183,85'],
+		['Rénio', '75', '186,207'],
+		['Ósmio', '76', '190,2'],
+		['Irídio', '77', '192,22'],
+		['Platina', '78', '195,08'],
+		['Ouro', '79', '196,966'],
+		['Mercúrio', '80', '200,59'],
+		['Tálio', '81', '204,383'],
+		['Chumbo', '82', '207,2'],
+		['Bismuto', '83', '208,980'],
+		['Polónio', '84', '208,982'],
+		['Astato', '85', '209,987'],
+		['Radon', '86', '222,018'],
+		['Frâncio', '87', '223,019'],
+		['Rádio', '88', '226,025'],
+		['Actínio', '89', '227,027'],
+		['Tório', '90', '232,038'],
+		['Protactínio', '91', '231,036'],
+		['Urânio', '92', '238,029'],
+		['Neptúnio', '93', '237,082'],
+		['Plutónio', '94', '(244)'],
+		['Amerício', '95', '243,061'],
+		['Cúrio', '96', '(247)'],
+		['Berquélio', '97', '247,070'],
+		['Califórnio', '98', '251,080'],
+		['Einsteinio', '99', '(254)'],
+		['Férmio', '100', '257,095'],
+		['Mendelévio', '101', '258,01'],
+		['Nobélio', '102', '259,101'],
+		['Laurêncio', '103', '260,105'],
+		['Ruterfórdio', '104', '261,11'],
+		['Dúbnio', '105', '262,11'],
+		['Seabórguio', '106', '263,12'],
+		['Bóhrio', '107', '262,12'],
+		['Hássio', '108', '265,13'],
+		['Meitnério', '109', '266,137'],
+		['Darmstádio', '110', '(269)'],
+		['Roentgénio', '111', '(272)'],
+		['Copernício', '112', '(277)'],
+		['Ununtrium', '113', '(284)'],
+		['Fleróvio', '114', '(285)'],
+		['Ununpentium', '115', '(288)'],
+		['Livermório', '116', '(293)'],
+		['Ununseptium', '117', '(294)'],
+		['Ununoctum', '118', '(294)']]
+
+
+
+		function myFunction() {
+			var x = document.getElementByClassName('.l');
+			//    var y = document.getElementByTagName("h1");
+			//	var s = "";
+			//	window.i = window.i + 5;
+			//	s = String(window.i)+"px";
+			//    x.style.fontSize = s;
+			document.alert(x.length);
+			x.style.color = "red";
+			//    document.getElementById("demo").innerHTML = s;
+			//    y.style.border-bottom = String(i);
+		}
+		//function mudaEstilo(selector, property, value) {
+		//    for (var i=0; i<document.styleSheets.length;i++) {//Loop through all styles
+		//		document.styleSheets[i].insertRule(selector+ ' {'+property+':'+value+'}', document.styleSheets[i].cssRules.length);
+		//        } catch(err) {try { document.styleSheets[i].addRule(selector, property+':'+value);} catch(err) {}}//IE
+		//    }
+		//}
+
+		function mudaEstilo(selector, property, value) {
+			if (estado == 0) {
+				for (var i = 0; i < document.styleSheets.length; i++) {//Loop through all styles
+					//Try add rule
+					try {
+						document.styleSheets[i].insertRule(selector + ' {' + property + ':' + value + '}', document.styleSheets[i].cssRules.length);
+					} catch (err) { try { document.styleSheets[i].addRule(selector, property + ':' + value); } catch (err) { } }//IE
+				}
+			}
+		}
+
+
+		function mostraElemento(nome) {
+			//function mostraElemento(nome,numero,peso,cor){
+			//	document.write(nome,numero,peso);
+			//	var x = document.getElementById("enome");
+			//	x.style.color =("red");
+			//	document.getElementById("caixa").innerHTML = nome+" elemento número "+numero+" de massa atómica "+peso;
+			if (estado == 0) {
+				document.getElementById("etitul1").innerHTML = 'Número atómico';
+				document.getElementById("etitul4").innerHTML = 'Massa atómica';
+				document.getElementById("enome").innerHTML = elementos[nome][0];
+				document.getElementById("enumero").innerHTML = elementos[nome][1];
+				document.getElementById("epeso").innerHTML = elementos[nome][2];
+			}
+			if ((estado > 0) && (nome <= 118)) {
+				document.getElementById("eresposta").innerHTML = 'Passou ';
+				if (nome == escolha) {
+					document.getElementById("eresposta").innerHTML = 'Acertou';
+				} else {
+					document.getElementById("eresposta").innerHTML = 'Errou';
+				}
+			}
+			if (nome > 118) {
+				nome = nome - 118;
+				document.getElementById("etitul1").innerHTML = 'Número atómico';
+				document.getElementById("etitul4").innerHTML = 'Massa atómica';
+				document.getElementById("enome").innerHTML = elementos[nome][0];
+				document.getElementById("enumero").innerHTML = elementos[nome][1];
+				document.getElementById("epeso").innerHTML = elementos[nome][2];
+				document.getElementById("eresposta").innerHTML = '';
+			}
+
+			//	document.getElementById("enumero").innerHTML = numero;
+			//	document.getElementById("epeso").innerHTML = peso;
+			//	document.getElementById("caixa").style.backgroundColor = cor;
+		}
+
+		function limpaElemento() {
+			if (estado == 0) {
+				document.getElementById("etitul1").innerHTML = '';
+				document.getElementById("etitul4").innerHTML = '';
+				document.getElementById("enome").innerHTML = '';
+				document.getElementById("enumero").innerHTML = '';
+				document.getElementById("epeso").innerHTML = '';
+				document.getElementById("eresposta").innerHTML = '';
+			}
+		}
+
+
+		function mudaEstado() {
+			switch (estado) {
+				case 0:
+					//		mudaEstilo('.e','color','white');
+					//		mudaEstilo('a','opacity','0');
+					document.getElementById("jogIni").innerHTML = "Nível 2";
+					document.getElementById("jogo").style.visibility = "visible";
+					estado = 1;
+					break;
+				case 1:
+					estado = 0;
+					//		mudaEstilo('.e','color','black');
+					mudaEstilo('a', 'opacity', '0');
+					document.getElementById("jogIni").innerHTML = "Estudo";
+					//			document.getElementById("jogo").style.visibility="hidden";
+					estado = 2;
+					break;
+				case 2:
+					estado = 0;
+					//		mudaEstilo('.e','color','black');
+					mudaEstilo('a', 'opacity', '1');
+					document.getElementById("jogIni").innerHTML = "Nível 1";
+					document.getElementById("jogo").style.visibility = "hidden";
+					break;
+				default:
+					break;
+			}
+		}
+
+		function jogar() {
+			if (estado > 0) {
+				escolha = Math.round((1 + Math.random() * 118));
+				var x = escolha + 118;
+				mostraElemento(x);
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+			<div class="container-fluid">
+				<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">webtest</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+					<ul class="navbar-nav flex-grow-1">
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="House" asp-action="Index">House</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Casa" asp-action="Index">Casa</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Lar" asp-action="Index">Lar</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Habitacao" asp-action="Index">Habitação</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Barraca" asp-action="Index">Barraca</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+	<footer class="border-top footer text-muted">
+		<div class="container">
+			&copy; 2024 - webtest - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+		</div>
+	</footer>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

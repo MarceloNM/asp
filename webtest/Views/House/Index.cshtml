@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    Layout = "~/Views/Shared/_Abaco.cshtml";
+}
+<!--title>Ábaco</!--title -->
+
+<!-- body onload="comecar()" -->
+    <!-- Ao iniciar a página chama a função Javascript tabuleiro() -->
+    <div id="abaco">
+        <!-- input type="button" value="Generate a table" onclick="tabuleiro()" /-->
+        <button value="Start" onclick= "comecar()">Start</button>
+    </div>
+    <!-- br/><hr/><br/>
+    <button id="limpar" onclick="limpar()">Limpar</button>
+    <button id="somar1" onclick="somar1(1)">Somar 1</button>
+    <button id="somarn" onclick="somarn(256)">Somar N</button>
+    <button id="subtrair1" onclick="somar1(-1)">Subtrair 1</button>
+    <br/><br/><hr/><br/ -->
+    <!-- form>
+        <label> Escreva um número entre 0 e 9999999999999 </label -->
+    <!-- input type="number" name="numero" min="0" max="9999999999999" maxlength="13"/>
+    <button type="submit" onclick="lerInput()"> Enviar </button -->
+    <!-- /form -->
+    <!-- br/><br/><hr/><br/ -->
+    <!-- button onclick="escreveNum(9999999999999)">Escreve número</button -->
